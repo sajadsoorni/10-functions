@@ -17,4 +17,5 @@ In this part, we go deeper to understand how they work.
 ---
 
 > ⚠️ This project is based on [Jonas Schmedtmann’s JavaScript course on Udemy](https://www.udemy.com/course/the-complete-javascript-course/?couponCode=ST14MT150425G3).  
-> I'm using it for learning and practice purposes only.
+> I'm using it for learning and practice purposes only.  
+> Official course GitHub repo: [jonasschmedtmann/complete-javascript-course](https://github.com/jonasschmedtmann/complete-javascript-course)
