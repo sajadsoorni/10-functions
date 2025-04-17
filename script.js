@@ -64,6 +64,9 @@ newPassport(sajad);
 checkIn(flight, sajad);
 
 */
+
+/*
+
 //  First-Class and Higher-Order Functions
 //  Functions Accepting Callback Functions
 
@@ -96,3 +99,30 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+*/
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('hey');
+
+// this inner function remembers the value of
+// greeting (i.e., 'hey') because of closure.
+
+// const greeterHey = function(name) {
+//   console.log(`hey ${name}`);
+// };
+
+greeterHey('Sajad');
+greeterHey('Steven');
+
+greet('Hello')('Sajad');
+
+// Challenge
+const greetArr = (greeting) => (name) => console.log(`${greeting} ${name}`);
+
+greetArr('Hi')('team');
