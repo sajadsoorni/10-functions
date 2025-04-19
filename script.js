@@ -309,6 +309,9 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 //
 */
 
+/*
+// 143-iife-practice
+
 const runOnce = function () {
   console.log('This will never run again');
 };
@@ -332,3 +335,56 @@ runOnce();
 
 // console.log(isPrivate);
 console.log(notPrivate);
+*/
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+//------------------------------------------------------------------------------------
+function outerFunction() {
+  let outerVariable = "I'm outside!"; // This variable lives inside outerFunction
+
+  function innerFunction() {
+    // This inner function can SEE and USE outerVariable
+    console.log(outerVariable + ' ...but I can access it from inside!');
+  }
+
+  return innerFunction; // outerFunction gives back the innerFunction
+}
+
+// 1. Call the outer function. It creates 'outerVariable' and the 'innerFunction'.
+//    Then, it returns the 'innerFunction', which we store in 'myInnerFunc'.
+let myInnerFunc = outerFunction();
+
+// At this point, outerFunction() has finished running! You'd think 'outerVariable' would be gone...
+
+// 2. Now, call the function we got back:
+myInnerFunc(); // Output: I'm outside! ...but I can access it from inside!
+//------------------------------------------------------------------------------------
+function createAdder(numberToAdd) {
+  // numberToAdd is "remembered" by the inner function
+  function adder(number) {
+    return number + numberToAdd;
+  }
+  return adder;
+}
+
+let add5 = createAdder(5); // Creates a function that always adds 5
+let add10 = createAdder(10); // Creates a function that always adds 10
+
+console.log(add5(100)); // Output: 105
+console.log(add10(100)); // Output: 110
+//------------------------------------------------------------------------------------
+
+console.dir(myInnerFunc);
